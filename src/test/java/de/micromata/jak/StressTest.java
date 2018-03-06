@@ -14,6 +14,7 @@ import org.junit.Test;
 import de.micromata.opengis.kml.v_2_2_0.Coordinate;
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
+import de.micromata.opengis.kml.v_2_2_0.KmlUnmarshalException;
 import de.micromata.opengis.kml.v_2_2_0.LineString;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 
@@ -31,7 +32,7 @@ public final class StressTest {
 	}
 
 	@Test
-	public void stess() throws FileNotFoundException {
+	public void stess() throws FileNotFoundException, KmlUnmarshalException {
 		coordinates(1);
 		coordinates(5);
 		// coordinates(10);
@@ -48,13 +49,13 @@ public final class StressTest {
 		// coordinates(5000000);
 	}
 
-	private void coordinates(int coordinates) throws FileNotFoundException {
+	private void coordinates(int coordinates) throws FileNotFoundException, KmlUnmarshalException {
 		int repeat = 2;
 		coordinates(repeat, coordinates, true);
 		coordinates(repeat, coordinates, false);
 	}
 
-	private void coordinates(int repeat, int coordinates, boolean useStringConstructor) throws FileNotFoundException {
+	private void coordinates(int repeat, int coordinates, boolean useStringConstructor) throws FileNotFoundException, KmlUnmarshalException {
 		String filename = null;
 		List<Statistics> stats = new ArrayList<Statistics>();
 		for (int i = 0; i < repeat; i++) {
@@ -87,7 +88,7 @@ public final class StressTest {
 
 	}
 
-	private Statistics coordinates(String filename, int coordinates, boolean useStringConstructor) throws FileNotFoundException {
+	private Statistics coordinates(String filename, int coordinates, boolean useStringConstructor) throws FileNotFoundException, KmlUnmarshalException {
 		Runtime r = Runtime.getRuntime();
 		r.gc();
 
@@ -125,7 +126,7 @@ public final class StressTest {
 		// measure the unmarshal part
 		stats.getTimeUnmarhsal().start();
 		// Kml.unmarshal(new File(filename), false);
-		Kml.unmarshal(out.toString());
+		Kml.unmarshal(out.toString(), false);
 		stats.getTimeUnmarhsal().end();
 		return stats;
 	}

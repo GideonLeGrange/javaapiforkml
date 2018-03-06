@@ -23,13 +23,14 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import de.micromata.opengis.kml.v_2_2_0.Kml;
+import de.micromata.opengis.kml.v_2_2_0.KmlUnmarshalException;
 
 
 
 public class KmzTest {
 	@Test
 	@Ignore
-	public void testKml12() throws IOException {
+	public void testKml12() throws IOException, KmlUnmarshalException {
 		final Kml kmlmain = createKmlStructure("KmlFileMain.kml", "PlacemarkMain");
 
 		Kml kml1 = createKmlStructure("KmlFile1.kml", "Placemark1");
@@ -74,9 +75,8 @@ public class KmzTest {
 	}
 
 	// @Test
-	public void tetetetetetet() throws FileNotFoundException {
-		Kml unmarshal = Kml
-		    .unmarshal("<?xml version=\"1.0\" encoding=\"UTF-8\"?><kml xmlns=\"http://www.opengis.net/kml/2.2\" xmlns:gx=\"http://www.google.com/kml/ext/2.2\" xmlns:kml=\"http://www.opengis.net/kml/2.2\" xmlns:atom=\"http://www.w3.org/2005/Atom\"><Placemark>	<name>London, UK</name>	<open>1</open>	<Point>		<coordinates>-0.126236,51.500152,0</coordinates>	</Point></Placemark></kml>");
+	public void tetetetetetet() throws FileNotFoundException, KmlUnmarshalException {
+		Kml unmarshal = Kml.unmarshal("<?xml version=\"1.0\" encoding=\"UTF-8\"?><kml xmlns=\"http://www.opengis.net/kml/2.2\" xmlns:gx=\"http://www.google.com/kml/ext/2.2\" xmlns:kml=\"http://www.opengis.net/kml/2.2\" xmlns:atom=\"http://www.w3.org/2005/Atom\"><Placemark>	<name>London, UK</name>	<open>1</open>	<Point>		<coordinates>-0.126236,51.500152,0</coordinates>	</Point></Placemark></kml>", false);
 		unmarshal.marshal(System.out);
 
 	}

@@ -15,6 +15,7 @@ import de.micromata.opengis.kml.v_2_2_0.Coordinate;
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
+import de.micromata.opengis.kml.v_2_2_0.KmlUnmarshalException;
 import de.micromata.opengis.kml.v_2_2_0.LinearRing;
 import de.micromata.opengis.kml.v_2_2_0.MultiGeometry;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
@@ -27,7 +28,7 @@ import de.micromata.opengis.kml.v_2_2_0.Polygon;
  */
 public class Example4 {
 
-	public static void main(String args[]) throws IOException {
+	public static void main(String args[]) throws IOException, KmlUnmarshalException {
 
 HashMap<String, HashMap<String, Double>> result = Utils
     .readMultiDataFromCVS("src/main/resources/exampledata/mobile_phone.csv", 0, 3, 2);

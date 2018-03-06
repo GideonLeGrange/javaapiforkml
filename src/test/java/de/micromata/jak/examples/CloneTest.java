@@ -12,6 +12,7 @@ import de.micromata.opengis.kml.v_2_2_0.Coordinate;
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
+import de.micromata.opengis.kml.v_2_2_0.KmlUnmarshalException;
 import de.micromata.opengis.kml.v_2_2_0.MultiGeometry;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Polygon;
@@ -19,7 +20,7 @@ import de.micromata.opengis.kml.v_2_2_0.Polygon;
 public class CloneTest {
 
   @Test
-  public void testClonePlacemark() {
+  public void testClonePlacemark() throws KmlUnmarshalException {
     String path = "src/main/resources/exampledata/worldBorders.kml";
     Kml kml = Kml.unmarshal(new File(path));
     Document document = (Document) kml.getFeature();

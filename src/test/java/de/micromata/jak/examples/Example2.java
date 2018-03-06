@@ -13,6 +13,7 @@ import de.micromata.opengis.kml.v_2_2_0.Coordinate;
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
+import de.micromata.opengis.kml.v_2_2_0.KmlUnmarshalException;
 import de.micromata.opengis.kml.v_2_2_0.LinearRing;
 import de.micromata.opengis.kml.v_2_2_0.ListItemType;
 import de.micromata.opengis.kml.v_2_2_0.MultiGeometry;
@@ -28,7 +29,7 @@ import de.micromata.opengis.kml.v_2_2_0.StyleSelector;
  */
 public class Example2 {
 
-  public static void main(String args[]) throws FileNotFoundException {
+  public static void main(String args[]) throws FileNotFoundException, KmlUnmarshalException {
 		int minPolyHeight = 308000; // set a minimum height used by the 3D shapes
 		int maxPolyHeight = 2692000; // real max = 3000000 - 308000 = 2692000
 
